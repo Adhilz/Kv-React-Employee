@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/src/styles/Form.css">
+</head>
+
+<body>
+
+    <main>
+        <img src="/public/image.png" alt="Logo">
+    </main>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <div class="menu">
+                <div class="icon-circle">
+                    <img src="/public/People.png" alt="contact-icon" width="20px">
+                </div>
+
+                <span>Employee List</span>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="create_employee">
+                <h2>Create Employee</h2>
+            </div>
+
+            <div class="form-list">
+
+                <div class="list-1">
+
+                    <div class="single-item">
+                        <label for="Employee Name">Employee Name</label><br>
+                        <input type="text" id="name" name="name" placeholder="Employee Name"><br><br>
+                    </div>
+
+                    <div class="single-item">
+                        <label for="Employee ID">Employee ID</label><br>
+                        <input type="text" id="employee_id" name="employee_id" placeholder="Employee ID"><br><br>
+                    </div>
+
+                    <div class="single-item">
+                        <label for="Joining Date">Joining Date</label><br>
+                        <input type="date" id="joining_date" name="joining_date" placeholder="Joining Date"><br><br>
+                    </div>
+
+                </div>
+
+                <div class="list-2">
+
+                    <div class="single-item">
+                        <label for="Role">Role</label><br>
+
+                        <select id="role" name="role">
+                            <option value="">Role</option>
+                            <option value="developer">Developer</option>
+                            <option value="designer">Designer</option>
+                            <option value="manager">Manager</option>
+                            <option value="tester">Tester</option>
+                        </select><br><br>
+                    </div>
+
+                    <div class="single-item">
+                        <label for="Status">Status</label><br>
+
+                        <select id="status" name="status">
+                            <option value="">Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select><br><br>
+                    </div>
+
+                    <div class="single-item">
+                        <label for="Experience">Experience</label><br>
+                        <input type="text" id="experience" name="experience" placeholder="Experience"><br><br>
+                    </div>
+
+                </div>
+
+                <div class="isolate-last-row">
+
+                    <div class="isolate-item">
+                        <label for="Address">Address</label><br>
+                        <input type="text" id="address" name="address" placeholder="Address"><br><br>
+                    </div>
+
+                    <div class="isolate-item">
+                        <label for="Upload to Proof">Upload to Proof</label><br>
+                        <input type="file" id="upload_proof" name="upload_proof"
+                            placeholder="Upload to Proof"><br><br>
+                    </div>
+
+                </div>
+
+                <div class="isolate-last-row">
+
+                    <div class="isolate-item-sub">
+                        <input type="text" id="City" name="City" placeholder="City">
+                    </div>
+
+                    <div class="isolate-item-sub">
+                        <input type="text" id="Country" name="Country" placeholder="Country" style="margin: 7px 0 0 -30px;">
+                    </div>
+
+                </div>
+
+                <div class="isolate-last-row">
+
+                    <div class="isolate-item-sub">
+                        <input type="text" id="Postal Code" name="Postal Code"
+                            placeholder="Postal Code"><br><br>
+                    </div>
+
+                </div>
+
+                <div class="button-space">
+                    <button class="create">Create</button>
+                    <button class="Cancel">Cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

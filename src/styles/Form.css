@@ -1,0 +1,175 @@
+
+        .sidebar {
+            width: 300px;
+            background: white;
+            border-right: 2px solid #ffffff;
+        }
+
+        .logo {
+            padding: 20px;
+            border-bottom: 1px solid white;
+        }
+
+        .logo img {
+            width: 200px;
+        }
+
+        .icon-circle {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #009dff;
+            font-size: 18px;
+        }
+
+        .menu {
+            background: #009dff;
+            color: white;
+            margin: 15px 0 15px 15px;
+            padding: 15px;
+            border-radius: 20px 0 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            background: #f3f5f7;
+        }
+
+        .create_employee {
+            margin: 20px;
+            padding: 5px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .form-list {
+            margin: 20px;
+            padding: 5px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .list-1 {
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .list-2 {
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .single-item {
+            flex: 1;
+        }
+
+        .single-item label {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .single-item input {
+            width: 80%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .single-item select {
+            width: 90%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 8px;
+            background: white;
+        }
+
+        main img {
+            width: 250px;
+            margin: 20px;
+        }
+
+        .isolate-item label {
+            margin: 10px 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .isolate-item input {
+            margin: 10px 20px;
+            width: 400px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+        .isolate-item-sub input {
+            margin: 10px 20px;
+            width: 180px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .isolate-last-row {
+            display: flex;
+            flex-direction: row;
+            justify-content:left;
+            gap: 20px;
+        }
+        .button-space{
+            margin:20px;
+            display:flex;
+            gap:20px;
+        }
+
+        .button-space button{
+            width:180px;
+
+            padding:15px;
+
+            font-size:16px;
+            font-weight:600;
+
+            border:1px solid #ccc;
+            border-radius:8px;
+
+            cursor:pointer;
+        }
+        .create{
+            background:#009dff;
+            color:white;
+            border:none;
+        }
+
+        .Cancel{
+            background:white;
+            color:black;
+        }
+   
