@@ -1,4 +1,12 @@
-
+        .chatbotheader{
+            background-color: #009dff;
+            width :300px;
+            border-radius: 50% 50% 0 0;
+        }
+        .chathead{
+            display:flex;
+            flex-direction: row;
+        }
         .sidebar {
             width: 300px;
             background: white;
