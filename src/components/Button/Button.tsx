@@ -1,17 +1,25 @@
+import "./style.css";
+
 type ButtonProps = {
-  text: string;
   type?: "button" | "submit" | "reset";
+  className?: string;
+  children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 };
 
-function Button({
-  text,
+const Button: React.FC<ButtonProps> = ({
   type = "button",
-}: ButtonProps) {
+  className,
+  onClick,
+  children,
+  disabled,
+}) => {
   return (
-    <button type={type}>
-      {text}
+    <button type={type} className={className} onClick={onClick} disabled={disabled}>
+      {children}
     </button>
   );
-}
+};
 
 export default Button;

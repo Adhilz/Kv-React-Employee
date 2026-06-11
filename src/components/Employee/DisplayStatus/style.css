@@ -1,0 +1,20 @@
+.display-status {
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.status-probation {
+  color: #cca500;
+  background-color: #fff8d7;
+}
+
+.status-inactive {
+  color: #812f00;
+  background-color: #f3a181;
+}
+
+.status-employee {
+  color: #60b11f;
+  background-color: #a8f7c0;
+}

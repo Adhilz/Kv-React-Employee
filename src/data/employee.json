@@ -1,0 +1,77 @@
+[
+  {
+    "employeeName": "Alice Johnson",
+    "employeeId": "EMP001",
+    "joiningDate": "2022-03-15",
+    "role": "Software Engineer",
+    "status": "Employee",
+    "experience": 4,
+    "action": "View",
+    "address": {
+      "city": "New York",
+      "address": "123 Park Avenue",
+      "country": "USA",
+      "postalCode": "10001"
+    }
+  },
+  {
+    "employeeName": "Bob Smith",
+    "employeeId": "EMP002",
+    "joiningDate": "2021-07-10",
+    "role": "Senior Software Engineer",
+    "status": "Employee",
+    "experience": 6,
+    "action": "View",
+    "address": {
+      "city": "San Francisco",
+      "address": "456 Market Street",
+      "country": "USA",
+      "postalCode": "94105"
+    }
+  },
+  {
+    "employeeName": "Charlie Davis",
+    "employeeId": "EMP003",
+    "joiningDate": "2023-01-05",
+    "role": "QA Engineer",
+    "status": "Probation",
+    "experience": 2,
+    "action": "View",
+    "address": {
+      "city": "Austin",
+      "address": "789 Congress Avenue",
+      "country": "USA",
+      "postalCode": "78701"
+    }
+  },
+  {
+    "employeeName": "Diana Wilson",
+    "employeeId": "EMP004",
+    "joiningDate": "2020-11-20",
+    "role": "Project Manager",
+    "status": "Employee",
+    "experience": 8,
+    "action": "View",
+    "address": {
+      "city": "Chicago",
+      "address": "321 Michigan Avenue",
+      "country": "USA",
+      "postalCode": "60601"
+    }
+  },
+  {
+    "employeeName": "Ethan Brown",
+    "employeeId": "EMP005",
+    "joiningDate": "2019-06-01",
+    "role": "Tech Lead",
+    "status": "Inactive",
+    "experience": 10,
+    "action": "View",
+    "address": {
+      "city": "Seattle",
+      "address": "654 Pine Street",
+      "country": "USA",
+      "postalCode": "98101"
+    }
+  }
+]

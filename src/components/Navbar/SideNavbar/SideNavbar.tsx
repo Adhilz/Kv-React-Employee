@@ -1,4 +1,4 @@
-import SideNavbarItem from "../../Navbar/SideNavbarItem/SideNavbarItem";
+import SideNavbarItem from "../SideNavbarItem/SideNavbarItem";
 import "./style.css";
 
 import EmployeeListIcon from "../../../assets/navbar-employee-icon.svg";

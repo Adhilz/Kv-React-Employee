@@ -5,8 +5,14 @@ import "../Input/style.css";
 type SelectProps = {
   id?: string;
   label?: string;
+  name?: string;
   isRequired?: boolean;
+  containerClassName?: string;
+  className?: string;
   children: React.ReactNode[] | React.ReactNode;
+  value?: string;
+  defaultValue?: string;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 };
 type SelectOptionProps = {
   value?: string;
@@ -17,12 +23,26 @@ export const Select: React.FC<SelectProps> = ({
   id,
   isRequired = false,
   label,
+  name,
+  className,
+  containerClassName,
   children,
+  value,
+  defaultValue,
+  onChange,
 }) => {
   return (
-    <div className="input-wrapper">
+    <div className={`input-wrapper ${containerClassName}`}>
       {label && <label htmlFor="role">{label}</label>}
-      <select id={id} required={isRequired}>
+      <select
+        id={id}
+        required={isRequired}
+        name={name}
+        className={className}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={onChange}
+      >
         {children}
       </select>
     </div>

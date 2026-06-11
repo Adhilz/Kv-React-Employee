@@ -1,31 +1,51 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Employee = {
   id: number;
   name: string;
 };
 
-const EMPLOYEES: Employee[] = [
-  { id: 1, name: "Adhil" },
-  { id: 2, name: "John" },
-  { id: 3, name: "Sarah" },
-  { id: 4, name: "Alex" },
-];
-
-function useFetch(searchTerm: string) {
+function useFetch(url: string) {
   const [data, setData] = useState<Employee[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] =
+    useState<string | null>(null);
 
   useEffect(() => {
-    const filteredData = EMPLOYEES.filter((employee) =>
-      employee.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
+    async function fetchData() {
+      try {
+        setLoading(true);
+
+        const response =
+          await fetch(url);
+
+        if (!response.ok) {
+    throw new Error(
+      `HTTP Error: ${response.status}`
     );
+  }
 
-    setData(filteredData);
-  }, [searchTerm]);
+        const result =
+          await response.json();
 
-  return data;
+        setData(result);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [url]);
+
+  return {
+    data,
+    loading,
+    error
+  };
 }
 
 export default useFetch;

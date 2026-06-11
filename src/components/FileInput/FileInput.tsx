@@ -4,13 +4,16 @@ import "../Input/style.css";
 type FileInputProps = {
   id: string;
   label: string;
+  name?:string;
   actionLabel: string;
+  className?:string;
 };
 
-const FileInput: React.FC<FileInputProps> = ({ id, label, actionLabel }) => {
+const FileInput: React.FC<FileInputProps> = ({ id, label,name, actionLabel }) => {
   return (
     <div className="input-wrapper">
       <span>{label}</span>
+      <span>{name}</span>
       <div className="custom-file-upload-container">
         <label htmlFor={id} className="custom-file-upload">
           <img src={FileIcon} width="16" height="16" />
