@@ -9,17 +9,24 @@ import {
   ChatTrigger,
   ChatWrapper,
 } from "../../../components/Chat/Chat";
-
+import { useEffect, useRef } from "react";
 import Icon from "../../../assets/message-icon.svg";
 import MessageIcon from "../../../assets/send-icon.svg";
 
 import "./style.css";
 import { Suspense, useState } from "react";
 import { Outlet } from "react-router";
+import { useChat } from "@/hooks/useChat";
 
 const Layout = () => {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
-
+  const { messages, loading, handleSend } = useChat();
+  useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({
+    behavior: "smooth",
+  });
+}, [messages]);
   return (
     <main>
       <Header />
@@ -36,22 +43,28 @@ const Layout = () => {
             <ChatWrapper>
               <ChatHeader label="Help Desk" iconUrl={Icon} />
               <ChatMessageBody>
-                <ChatMessageBox isSend={true}>
-                  Lorem ipsum dolor sit amet.
-                </ChatMessageBox>
-                
-                <ChatMessageBox isSend={false}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-                  iusto aliquid quibusdam dolorem nemo veritatis debitis
-                  molestias mollitia sint ex distinctio quae quidem incidunt
-                  modi hic totam nostrum voluptates architecto.
-                </ChatMessageBox>
-                
-              </ChatMessageBody>
+                    {messages.map((message, index) => (
+                      <ChatMessageBox
+                        key={index}
+                        isSend={message.isSend}
+                      >
+                        {message.text}
+                      </ChatMessageBox>
+                    ))}
+
+                    {loading && (
+                      <ChatMessageBox isSend={false}>
+                        Typing...
+                      </ChatMessageBox>
+                    )}
+
+                    <div ref={messagesEndRef} />
+                  </ChatMessageBody>
               <ChatInputBox
-                placeholder="Type your question"
-                iconUrl={MessageIcon}
-              />
+                    placeholder="Type your question"
+                    iconUrl={MessageIcon}
+                    onSend={handleSend}
+                  />
             </ChatWrapper>
           )}
           <ChatTrigger isOpen={isChatOpen} onChange={setIsChatOpen} />

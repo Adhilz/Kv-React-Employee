@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Select Component > matches snapshot 1`] = `
+<div>
+  <div
+    class="input-wrapper "
+  >
+    <label
+      for="role"
+    >
+      Department
+    </label>
+    <select
+      class=""
+      id="department"
+      name="department"
+    >
+      Hi
+    </select>
+  </div>
+</div>
+`;
+
+exports[`Select Component > matches snapshot 2`] = `
+<div>
+  <div
+    class="input-wrapper "
+  >
+    <label
+      for="role"
+    >
+      Department
+    </label>
+    <select
+      class=""
+      id="department"
+      name="department"
+    >
+      Hi
+    </select>
+  </div>
+</div>
+`;

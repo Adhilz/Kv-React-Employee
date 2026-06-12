@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 
 import ChatIcon from "../../assets/message-icon.svg";
 import "./styles.css";
+import { useState } from "react";
 
 type ChatWrapperProps = {
   children: React.ReactNode[];
@@ -21,6 +22,7 @@ type ChatMessageBoxProps = {
 type ChatInputBoxProps = {
   placeholder: string;
   iconUrl: string;
+  onSend?:(message:string)=>void
 };
 
 type ChatMessageBodyProps = {
@@ -95,11 +97,40 @@ export const ChatMessageBox: React.FC<ChatMessageBoxProps> = ({
 export const ChatInputBox: React.FC<ChatInputBoxProps> = ({
   placeholder,
   iconUrl,
+  onSend,
 }) => {
+  const [message, setMessage] = useState("");
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+
+    onSend?.(message);
+    setMessage("");
+  };
+
   return (
     <div className="chat-input-wrapper">
-      <input type="text" placeholder={placeholder} />
-      {iconUrl && <img src={iconUrl} width={20} height={20} />}
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSend();
+          }
+        }}
+      />
+
+      {iconUrl && (
+        <img
+          src={iconUrl}
+          width={20}
+          height={20}
+          onClick={handleSend}
+          style={{ cursor: "pointer" }}
+        />
+      )}
     </div>
   );
 };

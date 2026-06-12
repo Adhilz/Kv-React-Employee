@@ -38,6 +38,7 @@ const Input: React.FC<InputProps> = ({
         defaultValue={value}
         required={isRequired}
       />
+
     </div>
   );
 };

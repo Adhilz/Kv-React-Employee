@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Login from "./pages/login/Login";
 import Landing from './pages/landing/Landing'
 import { lazy } from "react";
-import Layout from "./components/layout/Layout/Layout";
+import Layout from "@/components/layout/Layout/Layout";
 import EmployeeCreate from "./pages/employee-create/EmployeeCreate";
 import NotFound from "./pages/NotFound/NotFound";
 const EmployeeList= lazy(()=>import("./pages/employee-list/EmployeeList"));

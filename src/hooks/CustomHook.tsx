@@ -4,7 +4,6 @@ type Employee = {
   id: number;
   name: string;
 };
-
 function useFetch(url: string) {
   const [data, setData] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +23,6 @@ function useFetch(url: string) {
       `HTTP Error: ${response.status}`
     );
   }
-
         const result =
           await response.json();
 
