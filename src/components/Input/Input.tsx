@@ -35,7 +35,7 @@ const Input: React.FC<InputProps> = ({
         className={className}
         placeholder={placeholder}
         onChange={onChange}
-        defaultValue={value}
+        value={value ?? ""}
         required={isRequired}
       />
 

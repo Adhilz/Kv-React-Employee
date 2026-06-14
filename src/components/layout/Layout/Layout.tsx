@@ -31,7 +31,7 @@ const Layout = () => {
     <main>
       <Header />
       <section className="body-container">
-        <SideNavbar />
+        <SideNavbar  />
         <div className="rigth-container">
           <Suspense fallback={<Loading/>}>
           <Outlet />

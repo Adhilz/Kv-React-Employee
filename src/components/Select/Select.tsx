@@ -39,8 +39,7 @@ export const Select: React.FC<SelectProps> = ({
         required={isRequired}
         name={name}
         className={className}
-        value={value}
-        defaultValue={defaultValue}
+        value={value ?? defaultValue ?? ""}
         onChange={onChange}
       >
         {children}

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-import type { Employee, EmployeeState } from "../../types/employee";
+import type { Employee, EmployeeState } from "@components/Types/employee";
 
 import DummyEmployees from "../../data/employee.json";
 

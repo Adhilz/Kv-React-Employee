@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [login, { isLoading, error }] = useLoginMutation();
-  
+
   const [data, setData] = useState({
     username: "",
     password: "",
@@ -26,8 +26,8 @@ const Login = () => {
   const validateField = (name: string, value: string) => {
     switch (name) {
       case "username": {
-        const emailMsg = value && !value.includes("@") ? "Must contain @" : "";
-
+        const emailMsg =
+          value && !value.includes("@") ? "Username must contain @" : "";
         setErrors((prev) => ({ ...prev, username: emailMsg }));
         return;
       }
@@ -55,23 +55,23 @@ const Login = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await login({
-      email: data.username,
-      password: data.password,
-    }).unwrap();
+    try {
+      const response = await login({
+        email: data.username,
+        password: data.password,
+      }).unwrap();
 
-    localStorage.setItem("token", response.access_token);
+      localStorage.setItem("token", response.access_token);
 
-    console.log(response);
+      console.log(response);
 
-    navigate("/employee");
-  } catch (err) {
-    console.error("Login failed", err);
-  }
-};
+      navigate("/employee");
+    } catch (err) {
+      console.error("Login failed", err);
+    }
+  };
 
   return (
     <main className="login-layout">
@@ -88,13 +88,11 @@ const Login = () => {
           <form className="login-form-layout" onSubmit={handleSubmit}>
             <Input
               id="username"
-              
               type="text"
               name="username"
               placeholder="Username"
               value={data.username}
               onChange={handleChange}
-              
               isRequired
             />
             {errors.username && (
@@ -105,27 +103,23 @@ const Login = () => {
               id="password"
               type="password"
               name="password"
-              
               placeholder="Password"
               value={data.password}
               onChange={handleChange}
-              
               isRequired
             />
             {errors.password && (
               <span className="error-box">{errors.password}</span>
             )}
-              {error && (
-  <span className="error-box">
-    Invalid username or password
-  </span>
-)}
+            {error && (
+              <span className="error-box">Invalid username or password</span>
+            )}
             <Button
               type="submit"
               className="login-submit-button"
               disabled={isLoading}
-              >
-                {isLoading ? "Logging in..." : "Login"}
+            >
+              {isLoading ? "Logging in..." : "Login"}
             </Button>
           </form>
         </div>

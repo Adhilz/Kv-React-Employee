@@ -77,10 +77,7 @@
   left: 10px;
 }
 
-.custom-input:focus-within label,
-.custom-input:has(input:not(:placeholder-shown)) label {
-  transform: translateY(-10px) scale(0.9);
-}
+
 
 .login-submit-button {
   border: none;
@@ -89,6 +86,7 @@
   background-color: #03aeee;
   height: 40px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .error-box {

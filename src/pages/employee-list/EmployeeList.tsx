@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router";
+import { useNavigate } from "react-router";
 
 import Button from "../../components/Button/Button";
 import SectionHeader from "../../components/layout/Section/SectionHeader";
@@ -36,7 +36,9 @@ import DisplayStatus from "../../components/Employee/DisplayStatus/DisplayStatus
 
 const StatusOptions = [
   { label: "Status", value: "" },
-  { label: "Active", value: "active" },
+  { label: "Probation", value:"Probation"},
+  { label: "Active", value: "Active" },
+  { label: "Inactive",value: "Inactive"}
 ];
 const EmployeeList = () => {
   const {
@@ -46,11 +48,16 @@ const EmployeeList = () => {
     containerRef: confirmDialogContaierRef,
   } = useDialog();
 
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [selectedEmployeeId, setSelectedEmployeeId] = useState<number | null>(null);
+  const [selectedStatus, setSelectedStatus] = useState("");
   const { data: employees = [], error } = useGetEmployeesQuery();
   const [deleteEmployee] = useDeleteEmployeeMutation();
+  const filteredEmployees = selectedStatus
+    ? employees.filter(
+        (employee) => employee.status.toLowerCase() === selectedStatus.toLowerCase(),
+      )
+    : employees;
 
   const handleEmployeeCreteClick = () => {
     navigate("/employee/create");
@@ -95,7 +102,6 @@ if (error) {
   return <div>Failed to load employees</div>;
 }
 
-  console.log(searchParams.get("name"), searchParams.get("role"));
   return (
     <section className="employee-list-wrapper">
       <SectionHeader
@@ -103,7 +109,11 @@ if (error) {
         extraOptions={
           <div className="filter-options">
             <span>Filter by</span>
-            <StatusSelector selected="status" options={StatusOptions} />
+            <StatusSelector
+              selected={selectedStatus}
+              options={StatusOptions}
+              onChange={setSelectedStatus}
+            />
             <Button
               className=" action-button create-button"
               onClick={handleEmployeeCreteClick}
@@ -119,17 +129,18 @@ if (error) {
 
       <Table>
         <TableHeader>
-          <TableHead>Employee ID</TableHead>
-          <TableHead>Employee Name</TableHead>
-          <TableHead>Email</TableHead>
-          <TableHead>Experience</TableHead>
-          <TableHead>Role</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Actions</TableHead>
-          
+          <tr>
+            <TableHead>Employee ID</TableHead>
+            <TableHead>Employee Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Experience</TableHead>
+            <TableHead>Role</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead>Actions</TableHead>
+          </tr>
         </TableHeader>
         <TableBody>
-          {employees.map((eachEmp) => (
+          {filteredEmployees.map((eachEmp) => (
             <TableRow key={eachEmp.id} onClick={() => handleRowClick(eachEmp.id.toString())}>
               <TableCell>{eachEmp.id}</TableCell>
               <TableCell>{eachEmp.name}</TableCell>

@@ -23,6 +23,7 @@ import type { CreateEmployeePayload } from "../../api-service/employees/types";
 const EmployeeCreate = () => {
   const navigte = useNavigate();
   const location = useLocation();
+  
 
   // const dispatch = useAppDispatch();
 
@@ -182,7 +183,7 @@ const EmployeeCreate = () => {
         joiningDate: "",
         role: currentEmployee.role,
         status: currentEmployee.status,
-        experience: 4,
+        experience: currentEmployee.age || 0,
         action: "",
         age: currentEmployee.age,
         email: currentEmployee.email,
@@ -264,7 +265,7 @@ const EmployeeCreate = () => {
             label="Status"
             name="status"
             isRequired
-            defaultValue={data.status}
+            value={data.status}
             onChange={handleSelectChange}
           >
             <SelectOption value="">Select a status</SelectOption>
@@ -364,7 +365,7 @@ const EmployeeCreate = () => {
           <Button
             type="submit"
             className="employee-form-submit-button"
-            disabled={isCreateLoading || isUpdateLoading}
+            disabled={isCreateLoading || isUpdateLoading || isAddressLoading}
           >
             {isCreateLoading || isUpdateLoading
               ? "Saving"
